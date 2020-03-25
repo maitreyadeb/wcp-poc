@@ -9,7 +9,8 @@ public class DeliverableApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DeliverableApplication.class, args);
 		System.out.println("Running Application.......Pratip......");
-		System.out.println("Running Application.......Maitreya......");
+		System.out.println("Running Application.......1. Maitreya......");
+		
 	}
 
 }
