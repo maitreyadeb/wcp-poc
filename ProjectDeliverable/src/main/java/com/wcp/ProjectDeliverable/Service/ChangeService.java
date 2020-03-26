@@ -1,5 +1,6 @@
 package com.wcp.ProjectDeliverable.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,15 @@ public class ChangeService extends UtilService {
 		changesRepo.save(changesModel);
 	}
 
-	public List<ChangesModel> addChanges() {
-		List<ChangesModel>  listChanges = (List<ChangesModel>) this.changesRepo.findAll();
+	public List<ChangesModel> searchChanges(ChangesTO changesTo) {
+		List<ChangesModel>  listChanges = new ArrayList<ChangesModel>() ;
+		if(changesTo.getCrNumber().isEmpty()) 
+			 listChanges = (List<ChangesModel>) this.changesRepo.findAll();
+		else if(!changesTo.getCrNumber().isEmpty()) 
+			listChanges = changesRepo.findByCrNumberContaining (changesTo.getCrNumber());
+		else
+			listChanges = changesRepo.findByBrdNumberContaining (changesTo.getBrdNumber());
+	
 		return listChanges;
 	}
 	

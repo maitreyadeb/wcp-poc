@@ -21,10 +21,10 @@ public class ProjectDeliverableController {
 	@Autowired
 	ChangeService changeService;
 	
-	@GetMapping("/addChanges")
-	public ResponseEntity<Object> addChanges() {
-		System.out.println("Inside addChanges..GET......");
-		List<ChangesModel> changesList = this.changeService.addChanges();
+	@PostMapping("/searchChanges")
+	public ResponseEntity<Object> searchChanges(@RequestBody ChangesTO changesTo) {
+		System.out.println("Inside searchChanges..GET......");
+		List<ChangesModel> changesList = this.changeService.searchChanges(changesTo);
 		if(0 == changesList.size()) {
 			throw new NotFoundException("CR not found.....");
 		}
