@@ -8,7 +8,7 @@ public class DeliverableApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DeliverableApplication.class, args);
-		System.out.println("Running Application....");
+		
 	}
 
 }
