@@ -1,5 +1,7 @@
 package com.wcp.ProjectDeliverable.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.wcp.ProjectDeliverable.Model.ChangesModel;
@@ -22,6 +24,11 @@ public class ChangeService extends UtilService {
 		changesModel.setAuthorName(changesTo.getAuthorName());
 		changesModel.setCrCreationTime(UtilService.getDate().toString());
 		changesRepo.save(changesModel);
+	}
+
+	public List<ChangesModel> addChanges() {
+		List<ChangesModel>  listChanges = (List<ChangesModel>) this.changesRepo.findAll();
+		return listChanges;
 	}
 	
 	
