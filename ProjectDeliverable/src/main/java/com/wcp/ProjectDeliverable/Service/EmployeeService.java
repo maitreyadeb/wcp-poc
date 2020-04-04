@@ -10,7 +10,7 @@ import com.wcp.ProjectDeliverable.Repository.EmployeeRepository;
 import com.wcp.ProjectDeliverable.TransferObject.EmployeeTO;
 
 @Service
-public class EmployeeService extends UtilService{
+public class EmployeeService extends UtilService {
 	
 	@Autowired
 	EmployeeRepository employeeRepository;
@@ -19,12 +19,12 @@ public class EmployeeService extends UtilService{
 	EmployeeModel employeeModel;
 
 	public EmployeeModel addEmployee(EmployeeTO employeeTO) {
-		employeeModel.setEmpId(employeeTO.getEmpId());
+		//employeeModel.setEmpId(employeeTO.getEmpId());
 		employeeModel.setEmpDesc(employeeTO.getEmpDesc());
 		employeeModel.setEmpName(employeeTO.getEmpName());
 		employeeModel.setEmpSsoId(employeeTO.getEmpSsoId());
 		employeeModel.setEmpManager(employeeTO.getEmpManager());
-		employeeModel.setEmpSupervisor(employeeTO.getEmpSupervisor());
+		employeeModel.setEmpSupervisorFlag(employeeTO.getEmpSupervisorFlag());
 		employeeModel.setCreatedBy("SYSTEM");
 		employeeModel.setCreatedDate(this.getDate().toString());
 		
@@ -37,6 +37,10 @@ public class EmployeeService extends UtilService{
 	
 	public List<EmployeeModel> findAllEmployee(){
 		return (List<EmployeeModel>) employeeRepository.findAll();
+	}
+	
+	public List<EmployeeModel> findByEmpManager(String loggedUser){
+		return (List<EmployeeModel>) employeeRepository.findByEmpManager(loggedUser);
 	}
 	
 }

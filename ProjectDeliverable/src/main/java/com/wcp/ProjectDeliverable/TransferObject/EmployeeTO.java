@@ -9,11 +9,11 @@ import lombok.ToString;
 @ToString
 public class EmployeeTO {
 	
-	private int empId;
+	//private int empId;
 	private String empSsoId;
 	private String empName;
 	private String empDesc;
 	private String empManager;
-	private String empSupervisor;
+	private String empSupervisorFlag;
 
 }

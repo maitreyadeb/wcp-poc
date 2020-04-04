@@ -1,5 +1,7 @@
 package com.wcp.ProjectDeliverable.TransferObject;
 
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,5 +15,8 @@ public class ChangesTO {
 	private String brdNumber;
 	private String crDescription;
 	private String authorName;
+	private Date crProductionMoveDate;
+	private String crBase64;
+	private String brdBase64;
 	
 }
