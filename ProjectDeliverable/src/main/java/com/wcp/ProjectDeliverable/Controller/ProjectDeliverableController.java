@@ -24,6 +24,7 @@ import com.wcp.ProjectDeliverable.Service.EmployeeService;
 import com.wcp.ProjectDeliverable.TransferObject.ChangesTO;
 import com.wcp.ProjectDeliverable.TransferObject.EmployeeChangesTO;
 import com.wcp.ProjectDeliverable.TransferObject.EmployeeTO;
+import com.wcp.ProjectDeliverable.dom.CRImplDetails;
 
 @RestController
 public class ProjectDeliverableController {
@@ -102,4 +103,13 @@ public class ProjectDeliverableController {
 		return new ResponseEntity<Object>(employeeChangesDetails, HttpStatus.CREATED);
 	}
 
+	@GetMapping("/findCRImplementDetails/{ssoId}")
+	public ResponseEntity<Object> findCRImplementDetails(@PathVariable String ssoId) {
+		System.out.println("SSO ID "+ssoId);
+		/* Working fine with V2 
+			List<CRImplDetails> changesImplDetails = this.employeeChangesService.getCRImplDetailsV2(ssoId);
+		*/
+		List<CRImplDetails> changesImplDetails = this.employeeChangesService.getCRImplDetailsV1(ssoId);
+		return new ResponseEntity<Object>(changesImplDetails, HttpStatus.FOUND);
+	}
 }
